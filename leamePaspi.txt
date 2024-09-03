@@ -1,0 +1,35 @@
+__________ Instalacion paquetes
+
+npm i cors 
+npm i express
+npm i jsonwebtoken
+npm i morgan
+npm i bcryptjs
+npm i mongoose
+
+// paquetes adicionales
+npm i nanoid@3.2.0
+
+npm i @types/bcryptjs --save-dev
+
+npm i nodemon --save-dev
+npm i dotenv --save-dev
+npm i @types/cors --save-dev
+npm i @types/express --save-dev
+npm i @types/morgan --save-dev
+npm i @types/jsonwebtoken --save-dev
+npm i @types/mongoose --save-dev
+npm i @types/sharp --save-dev
+
+__________ tsconfig.json
+
+tsc --init
+
+"target": "es2016",
+"outDir": "./build",
+"resolveJsonModule": true,
+
+________ Scripts pakage.json
+
+  "build":"tsc -w",
+  "dev":"nodemon build/index.js"

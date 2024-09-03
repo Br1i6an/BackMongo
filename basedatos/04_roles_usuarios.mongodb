@@ -1,0 +1,180 @@
+const basedatos = "bd_backmongo";
+use(basedatos);
+
+db.Rol.insertMany([
+    { nombreRol: "Administrador", estadoRol: 1 },
+    { nombreRol: "Usuario", estadoRol: 1 },
+    { nombreRol: "Invitado", estadoRol: 1 },
+]);
+// Roles
+const idAdmin = db.Rol.findOne({ nombreRol: "Administrador" }, { id: 1 });
+const idUsuario = db.Rol.findOne({ nombreRol: "Usuario" }, { id: 1 });
+const idInvitado = db.Rol.findOne({ nombreRol: "Invitado" }, { id: 1 });
+
+//CiudadesdCiudad": "id
+const idBarranquilla = db.Ciudad.findOne({ nombreCiudad: "BARRANQUILLA" }, { id: 1 });
+const idBogota = db.Ciudad.findOne({ nombreCiudad: "BOGOTÁ, D.C." }, { id: 1 });
+const idBucaramanga = db.Ciudad.findOne({ nombreCiudad: "BUCARAMANGA" }, { id: 1 });
+const idCali = db.Ciudad.findOne({ nombreCiudad: "CALI" }, { id: 1 });
+const idCartagena = db.Ciudad.findOne({ nombreCiudad: "CARTAGENA" }, { id: 1 });
+
+
+db.Usuario.insertMany([
+    {
+        "nombresUsuario": "Malinde",
+        "apellidosUsuario": "Dawber",
+        "documentoUsuario": "86-308-0496",
+        "tipoDocumentoUsuario": 2,
+        "telefonoUsuario": "+961 (571) 149-2002",
+        "direccionUsuario": "Suite 75",
+        "estadoUsuario": 1,
+        "codCiudad": idCartagena._id,
+        "codRol": idAdmin._id
+    }, {
+        "nombresUsuario": "Gretal",
+        "apellidosUsuario": "Ehlerding",
+        "documentoUsuario": "64-077-2450",
+        "tipoDocumentoUsuario": 1,
+        "telefonoUsuario": "+84 (849) 792-7206",
+        "direccionUsuario": "Room 1301",
+        "estadoUsuario": 2,
+        "codCiudad": idBogota._id,
+        "codRol": idAdmin._id
+    }, {
+        "nombresUsuario": "Bartlet",
+        "apellidosUsuario": "Sandells",
+        "documentoUsuario": "25-071-9768",
+        "tipoDocumentoUsuario": 1,
+        "telefonoUsuario": "+225 (640) 186-6172",
+        "direccionUsuario": "Apt 1402",
+        "estadoUsuario": 1,
+        "codCiudad": idBarranquilla._id,
+        "codRol": idInvitado._id
+    }, {
+        "nombresUsuario": "Bria",
+        "apellidosUsuario": "Attenborrow",
+        "documentoUsuario": "43-940-8926",
+        "tipoDocumentoUsuario": 1,
+        "telefonoUsuario": "+86 (541) 188-3578",
+        "direccionUsuario": "PO Box 21530",
+        "estadoUsuario": 2,
+        "codCiudad": idBucaramanga._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Maxine",
+        "apellidosUsuario": "Howson",
+        "documentoUsuario": "08-075-6056",
+        "tipoDocumentoUsuario": 3,
+        "telefonoUsuario": "+7 (462) 917-0297",
+        "direccionUsuario": "Suite 60",
+        "estadoUsuario": 1,
+        "codCiudad": idCartagena._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Glenine",
+        "apellidosUsuario": "Sarath",
+        "documentoUsuario": "24-486-0818",
+        "tipoDocumentoUsuario": 2,
+        "telefonoUsuario": "+389 (440) 678-3094",
+        "direccionUsuario": "Suite 24",
+        "estadoUsuario": 2,
+        "codCiudad": idBogota._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Preston",
+        "apellidosUsuario": "Matteuzzi",
+        "documentoUsuario": "06-320-6562",
+        "tipoDocumentoUsuario": 1,
+        "telefonoUsuario": "+223 (511) 640-9091",
+        "direccionUsuario": "Apt 1109",
+        "estadoUsuario": 1,
+        "codCiudad": idBogota._id,
+        "codRol": idInvitado._id
+    }, {
+        "nombresUsuario": "Prisca",
+        "apellidosUsuario": "Allan",
+        "documentoUsuario": "44-675-9920",
+        "tipoDocumentoUsuario": 1,
+        "telefonoUsuario": "+86 (344) 160-0259",
+        "direccionUsuario": "PO Box 87539",
+        "estadoUsuario": 2,
+        "codCiudad": idBarranquilla._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Halimeda",
+        "apellidosUsuario": "Fountaine",
+        "documentoUsuario": "87-849-7761",
+        "tipoDocumentoUsuario": 2,
+        "telefonoUsuario": "+62 (319) 734-5615",
+        "direccionUsuario": "PO Box 97148",
+        "estadoUsuario": 2,
+        "codCiudad": idCali._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Jonathon",
+        "apellidosUsuario": "Lound",
+        "documentoUsuario": "94-947-3231",
+        "tipoDocumentoUsuario": 3,
+        "telefonoUsuario": "+55 (920) 245-3898",
+        "direccionUsuario": "6th Floor",
+        "estadoUsuario": 1,
+        "codCiudad": idBarranquilla._id,
+        "codRol": idInvitado._id
+    }, {
+        "nombresUsuario": "Cassie",
+        "apellidosUsuario": "Sheering",
+        "documentoUsuario": "09-274-3960",
+        "tipoDocumentoUsuario": 4,
+        "telefonoUsuario": "+62 (538) 939-4712",
+        "direccionUsuario": "Suite 9",
+        "estadoUsuario": 2,
+        "codCiudad": idCartagena._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Shell",
+        "apellidosUsuario": "Santen",
+        "documentoUsuario": "90-245-6722",
+        "tipoDocumentoUsuario": 4,
+        "telefonoUsuario": "+380 (620) 902-3386",
+        "direccionUsuario": "Apt 1507",
+        "estadoUsuario": 2,
+        "codCiudad": idBucaramanga._id,
+        "codRol": idInvitado._id
+    }, {
+        "nombresUsuario": "Miltie",
+        "apellidosUsuario": "Boar",
+        "documentoUsuario": "69-305-0520",
+        "tipoDocumentoUsuario": 2,
+        "telefonoUsuario": "+48 (977) 877-4050",
+        "direccionUsuario": "Room 400",
+        "estadoUsuario": 2,
+        "codCiudad": idBogota._id,
+        "codRol": idUsuario._id
+    }, {
+        "nombresUsuario": "Lissi",
+        "apellidosUsuario": "Brind",
+        "documentoUsuario": "64-865-7701",
+        "tipoDocumentoUsuario": 2,
+        "telefonoUsuario": "+1 (502) 577-9124",
+        "direccionUsuario": "Room 806",
+        "estadoUsuario": 1,
+        "codCiudad": idBucaramanga._id,
+        "codRol": idInvitado._id
+    },
+]);
+
+const idUsuario1 = db.Usuario.findOne({ documentoUsuario: "86-308-0496" }, { _id: 1 });
+const idUsuario2 = db.Usuario.findOne({ documentoUsuario: "64-077-2450" }, { _id: 1 });
+
+db.Acceso.insertMany([
+    {
+        correoAcceso: "admin1@gmail.com",
+        claveAcceso: "$2a$12$C/BN0nTOu8El8/WbPm4Rk.WKqyIeMCLiSB95eEa6YgqSwD.cVNlHy",
+        codUsuario: idUsuario1._id
+    },
+    {
+        correoAcceso: "admin2@gmail.com",
+        claveAcceso: "$2a$12$C/BN0nTOu8El8/WbPm4Rk.WKqyIeMCLiSB95eEa6YgqSwD.cVNlHy",
+        codUsuario: idUsuario2._id
+    }
+])

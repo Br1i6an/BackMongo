@@ -1,0 +1,65 @@
+const basedatos = "bd_backmongo";
+use(basedatos);
+
+db.Producto.insertMany([
+  {
+    nombreProducto: "Vaquero Callejero en combo",
+    detalleProducto:
+      "Perro caliente con salchicha de 125 g a la parrilla, papa callejera,\
+       cebolla picada y salsas en pan perro + papas medianas (Corral o cascos) + bebida PET",
+    valorProducto: 22900,
+    publicoFotoProducto: "11078.jpg",
+    privadoFotoProducto: "IMG_PROD_KTsqRBevo9qrww1Pm15J.jpg",
+  },
+  {
+    nombreProducto: "Corral en combo",
+    detalleProducto:
+      "Hamburguesa de 125 g de carne 100% de res,\
+    con verduras y salsas en pan ajonjolí + papas medianas (Corral o cascos) + bebida PET",
+    valorProducto: 25900,
+    publicoFotoProducto: "10008.jpg",
+    privadoFotoProducto: "IMG_PROD_vOu-N8LCz1mAHEogbdgY.jpg",
+  },
+  {
+    nombreProducto: "Callejera en combo",
+    detalleProducto:
+      "Hamburguesa de 125 g de carne 100% de res, queso mozzarella,\
+    papas callejera, salsa de tomate, salsa blanca y mostaza en pan ajonjolí + papas medianas (Corral o cascos) + bebida PET",
+    valorProducto: 26900,
+    publicoFotoProducto: "10024.jpg",
+    privadoFotoProducto: "IMG_PROD_VQ9kACuhrSrg8902xo_W.jpg",
+  },
+  {
+    nombreProducto: "Vaquero Callejero con bebida",
+    detalleProducto:
+      "Perro caliente con salchicha de 125 g a la parrilla,\
+    papa callejera, cebolla picada y salsas en pan perro + gaseosa",
+    valorProducto: 19000,
+    publicoFotoProducto: "10373.jpg",
+    privadoFotoProducto: "IMG_PROD_BRnUQKyPa-Fd2UEEk2MU.jpg",
+  },
+  {
+    nombreProducto: "Vaquero Callejero",
+    detalleProducto:
+      "Perro caliente con salchicha de 125 g a la parrilla,\
+    papa callejera, cebolla picada y salsas en pan perro",
+    valorProducto: 17000,
+    publicoFotoProducto: "10372.jpg",
+    privadoFotoProducto: "IMG_PROD_5_qGdcjKQY3-NvKdcdgT.jpg",
+  },
+  {
+    nombreProducto: "Corral",
+    detalleProducto: "Hamburguesa de 125 g de carne 100% de res, con verduras y salsas en pan ajonjolí",
+    valorProducto: 20000,
+    publicoFotoProducto: "10372.jpg",
+    privadoFotoProducto: "IMG_PROD_DID9HsyHHmvqiENsxpLR.jpg",
+  },
+  {
+    nombreProducto: "Callejera",
+    detalleProducto: "Hamburguesa de 125 g de carne 100% de res, queso mozzarella, papas callejera, salsa de tomate, salsa blanca y mostaza en pan ajonjolí",
+    valorProducto: 21000,
+    publicoFotoProducto: "10030.jpg",
+    privadoFotoProducto: "IMG_PROD_DID9HsyHHmvqiENsxpFS.jpg",
+  },
+ 
+]);

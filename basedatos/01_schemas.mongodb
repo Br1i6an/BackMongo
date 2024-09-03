@@ -1,0 +1,173 @@
+const basedatos = "bd_backmongo";
+use(basedatos);
+
+db.createCollection("Ciudad", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "nombreCiudad",
+        "publicoFotoCiudad",
+        "privadoFotoCiudad",
+        "estadoCiudad",
+      ],
+      properties: {
+        nombreCiudad: { bsonType: "string" },
+        publicoFotoCiudad: { bsonType: "string" },
+        privadoFotoCiudad: { bsonType: "string" },
+        estadoCiudad: { enum: [1, 2, 3] },
+      },
+    },
+  },
+});
+
+db.createCollection("Restaurante", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "nombreRestaurante",
+        "direccionRestaurante",
+        "telefonoRestaurante",
+        "horarioRestaurante",
+        "estadoRestaurante",
+        "codCiudad",
+      ],
+      properties: {
+        nombreRestaurante: { bsonType: "string" },
+        direccionRestaurante: { bsonType: "string" },
+        telefonoRestaurante: { bsonType: "string" },
+        horarioRestaurante: { bsonType: "string" },
+        estadoRestaurante: { enum: [1, 2] },
+        codCiudad: { bsonType: "objectId" },
+      },
+    },
+  },
+});
+
+db.createCollection("Rol", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["nombreRol", "estadoRol"],
+      properties: {
+        nombreRol: { bsonType: "string" },
+        estadoRol: { enum: [1, 2, 3] },
+      },
+    },
+  },
+});
+
+db.Rol.createIndex({ nombreRol: 1 }, { unique: true });
+
+db.createCollection("Usuario", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "nombresUsuario",
+        "apellidosUsuario",
+        "documentoUsuario",
+        "tipoDocumentoUsuario",
+        "telefonoUsuario",
+        "direccionUsuario",
+        "estadoUsuario",
+        "codRol",
+        "codCiudad",
+      ],
+      properties: {
+        nombresUsuario: { bsonType: "string" },
+        apellidosUsuario: { bsonType: "string" },
+        documentoUsuario: { bsonType: "string" },
+        tipoDocumentoUsuario: { enum: [1, 2, 3, 4] }, // CC, C.E, NIT, PAS
+        telefonoUsuario: { bsonType: "string" },
+        direccionUsuario: { bsonType: "string" },
+        estadoUsuario: { enum: [1, 2] },
+        codRol: { bsonType: "objectId" },
+        codCiudad: { bsonType: "objectId" },
+      },
+    },
+  },
+});
+
+db.Usuario.createIndex({ documentoUsuario: 1 }, { unique: true });
+
+db.createCollection("Acceso", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "correoAcceso",
+        "claveAcceso",
+        "codUsuario",
+      ],
+      properties: {
+        correoAcceso: { bsonType: "string" },
+        claveAcceso: { bsonType: "string" },
+        codUsuario: { bsonType: "objectId" },
+      },
+    },
+  },
+});
+db.Acceso.createIndex({ correoAcceso: 1 }, { unique: true });
+
+
+db.createCollection("Imagen", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "nombrePublicoImagen",
+        "nombrePrivadoImagen",
+        "tamanoImagen",
+        "codUsuario",
+      ],
+      properties: {
+        nombrePublicoImagen: { bsonType: "string" },
+        nombrePrivadoImagen: { bsonType: "string" },
+        tamanoImagen: { bsonType: "int" },
+        codUsuario: { bsonType: "objectId" },
+      },
+    },
+  },
+});
+
+
+db.createCollection("Producto", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "nombreProducto",
+        "detalleProducto",
+        "valorProducto",
+        "publicoFotoProducto",
+        "privadoFotoProducto",
+      ],
+      properties: {
+        nombreProducto: { bsonType: "string" },
+        detalleProducto: { bsonType: "string" },
+        valorProduto: { bsonType: "int" },
+        publicoFotoProducto: { bsonType: "string" },
+        privadoFotoProducto: { bsonType: "string" },
+      },
+    },
+  },
+});
+
+
+db.createCollection("Menu",{
+  validator:{
+   $jsonSchema:{
+        bsonType:"object",
+        required:["nombreMenu", "codRestaurante", "productosMenu"],
+        properties:{
+             nombreMenu:{bsonType:"string"},
+             codRestaurante:{bsonType:"objectId"},
+             productosMenu:{bsonType: "array", items:{bsonType:"objectId"}}
+        }
+   }
+  }
+});
+
+

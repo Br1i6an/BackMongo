@@ -1,0 +1,46 @@
+const basedatos = "bd_backmongo";
+use(basedatos);
+
+/* productosMenu */
+const idProducto01 = db.Producto.findOne({ nombreProducto: "Vaquero Callejero en combo" }, { id: 1 });
+const idProducto02 = db.Producto.findOne({ nombreProducto: "Corral en combo" }, { id: 1 });
+const idProducto03 = db.Producto.findOne({ nombreProducto: "Callejera en combo" }, { id: 1 });
+const idProducto04 = db.Producto.findOne({ nombreProducto: "Vaquero Callejero con bebida" }, { id: 1 });
+const idProducto05 = db.Producto.findOne({ nombreProducto: "Vaquero Callejero" }, { id: 1 });
+const idProducto06 = db.Producto.findOne({ nombreProducto: "Corral" }, { id: 1 });
+const idProducto07 = db.Producto.findOne({ nombreProducto: "Callejera" }, { id: 1 });
+
+/* Ciudades */
+const idBarranquillaResta01 = db.Restaurante.findOne({ nombreRestaurante: "BUENAVISTA BARRANQUILLA" }, { id: 1 });
+const idBarranquillaResta02 = db.Restaurante.findOne({ nombreRestaurante: "ALTO PRADO" }, { id: 1 });
+const idBarranquillaResta03 = db.Restaurante.findOne({ nombreRestaurante: "VIVA BARRANQUILLA" }, { id: 1 });
+const idBarranquillaResta04 = db.Restaurante.findOne({ nombreRestaurante: "PORTAL DEL PRADO" }, { id: 1 });
+const idBarranquillaResta05 = db.Restaurante.findOne({ nombreRestaurante: "VILLA COUNTRY" }, { id: 1 });
+const idBarranquillaResta06 = db.Restaurante.findOne({ nombreRestaurante: "PARQUE ALEGRA" }, { id: 1 });
+
+
+db.Menu.insertMany([{
+    nombreMenu: "Menu BUENAVISTA BARRANQUILLA", codRestaurante: idBarranquillaResta01._id,
+    productosMenu: [idProducto01._id, idProducto02._id, idProducto03._id, idProducto04._id]
+},
+{
+    nombreMenu: "Menu ALTO PRADO", codRestaurante: idBarranquillaResta02._id,
+    productosMenu: [idProducto07._id, idProducto05._id, idProducto03._id, idProducto04._id, idProducto02._id]
+},
+{
+    nombreMenu: "Menu VIVA BARRANQUILLA", codRestaurante: idBarranquillaResta03._id,
+    productosMenu: [idProducto07._id, idProducto05._id, idProducto03._id]
+},
+{
+    nombreMenu: "Menu PORTAL DEL PRADO", codRestaurante: idBarranquillaResta04._id,
+    productosMenu: [idProducto01._id, idProducto02._id, idProducto03._id, idProducto06._id, idProducto07._id]
+},
+{
+    nombreMenu: "Menu OUTLET ÚNICO", codRestaurante: idBarranquillaResta05._id,
+    productosMenu: [idProducto01._id, idProducto02._id, idProducto03._id, idProducto06._id, idProducto05._id, idProducto07._id]
+},
+{
+    nombreMenu: "Menu VILLA COUNTRY", codRestaurante: idBarranquillaResta06._id,
+    productosMenu: [idProducto01._id, idProducto02._id, idProducto03._id, idProducto05._id]
+}
+]);

@@ -1,0 +1,74 @@
+const basedatos = "bd_backmongo";
+use(basedatos);
+
+const idBarranquilla = db.Ciudad.findOne(
+  { nombreCiudad: "BARRANQUILLA" },
+  { _id: 1 }
+);
+
+
+db.Restaurante.insertMany([
+  {
+    nombreRestaurante: "BUENAVISTA BARRANQUILLA",
+    direccionRestaurante: "CRA. 53 CALLE 98 Locales 207 Y 208 CCIAL BUENAVISTA",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante:
+      "Domingo a Jueves de 10:00am - 9:00pm Viernes a Sabado 10:00am - 10:00pm",
+    detalleRestaurante: "Tiene Parqueadero",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "ALTO PRADO",
+    direccionRestaurante: "CRA. 52 No. 80-14",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante:
+    "Domingo a Jueves 10:00am - 10:00pm Viernes y Sábado 10:00am - 12:00am",
+    detalleRestaurante: "Acepta Mascotas, Tiene Parqueadero, Tiene Zona Infantil",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "VIVA BARRANQUILLA",
+    direccionRestaurante: "CRA. 51 B CALLE 90 Local 10",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante: "Domingo - Jueves 10:00 am - 9:00 pm: Viernes - Sábado 10:00 am-10:00 pm",
+    detalleRestaurante: "Tiene Parqueadero",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "PORTAL DEL PRADO",
+    direccionRestaurante: "CALLE 53 No. 50 ESQUINA Local 219 Y 220",
+    telefonoRestaurante: " (605) 3610405",
+    horarioRestaurante: "Domingo a Domingo 10:00am - 9:00pm",
+    detalleRestaurante: "Tiene Parqueadero",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "OUTLET ÚNICO",
+    direccionRestaurante: "CALLE 74 No. 38D-113 Local K 008",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante: "Domingo - Jueves 10:00 am - 9:00 pm Viernes y Sábado 10:00 am - 10:00 pm",
+    detalleRestaurante: "Tiene Parqueadero",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "VILLA COUNTRY",
+    direccionRestaurante: "CALLE 78 No. 53-70 Local 326-327",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante: " Domingo - Jueves 11:00 am - 9:00 pm Viernes y Sábado 11:00 am -9:00 pm",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+  {
+    nombreRestaurante: "PARQUE ALEGRA",
+    direccionRestaurante: "Calle 30 # 4 B - 50",
+    telefonoRestaurante: "(605) 3610405",
+    horarioRestaurante: "Domingo a Jueves de 11:00 a.m. a 09:00 p.m. - Viernes y Sábado: 11:00 a.m. a 10:00 p.m.",
+    estadoRestaurante: 1,
+    codCiudad: idBarranquilla._id,
+  },
+]);
